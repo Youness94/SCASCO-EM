@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,9 +10,12 @@ use App\Http\Controllers\BillexchangeController;
 use App\Http\Controllers\CheckbookController;
 use App\Http\Controllers\CheckController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\RegulationsController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TypetransfersController;
+use App\Http\Controllers\UnderAccountController;
 
 // use App\Http\Controllers\CheckbookController;
 
@@ -155,7 +159,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     
-    Route::controller( CheckController::class)->group(function(){
+    Route::controller(CheckController::class)->group(function(){
         Route::post('/add/fillChecks/{id}', 'FillChecks')->name('add.fillChecks');
     });
 
@@ -163,6 +167,66 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
 });// end group admin middleware
 
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(AccountController::class)->group(function(){
+        Route::get('/all/accounts', 'AllAccounts')->name('all.accounts');
+        Route::get('/add/account', 'AddAccount')->name('add.account');
+        Route::post('/store/account', 'StoreAccount')->name('store.account');
+        Route::get('/edit/account/{id}', 'EditAccount')->name('edit.account');
+        Route::post('/update/account', 'UpdateAccount')->name('update.account');
+        Route::get('/delete/account/{id}', 'DeleteAccount')->name('delete.account');
+    });
+
+    
+
+});// end group admin middleware
+
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(CompanyController::class)->group(function(){
+        Route::get('/all/companies', 'AllCompanies')->name('all.companies');
+        Route::get('/add/company', 'AddCompany')->name('add.company');
+        Route::post('/store/company', 'StoreCompany')->name('store.company');
+        Route::get('/edit/company/{id}', 'EditCompany')->name('edit.company');
+        Route::post('/update/company', 'UpdateCompany')->name('update.company');
+        Route::get('/delete/company/{id}', 'DeleteCompany')->name('delete.company');
+    });
+
+    
+
+});// end group admin middleware
+
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(ServiceController::class)->group(function(){
+        Route::get('/all/services', 'AllServices')->name('all.services');
+        Route::get('/add/service', 'AddService')->name('add.service');
+        Route::post('/store/service', 'StoreService')->name('store.service');
+        Route::get('/edit/service/{id}', 'EditService')->name('edit.service');
+        Route::post('/update/service', 'UpdateService')->name('update.service');
+        Route::get('/delete/service/{id}', 'DeleteService')->name('delete.service');
+    });
+
+    
+
+});// end group admin middleware
+
+
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(UnderAccountController::class)->group(function(){
+        Route::get('/all/under-accounts', 'AllUnderAccounts')->name('all.under-accounts');
+        Route::get('/add/under-account', 'AddUnderAccount')->name('add.under-account');
+        Route::post('/store/under-account', 'StoreUnderAccount')->name('store.under-account');
+        Route::get('/edit/under-account/{id}', 'EditUnderAccount')->name('edit.under-account');
+        Route::post('/update/under-account', 'UpdateUnderAccount')->name('update.under-account');
+        Route::get('/delete/under-account/{id}', 'DeleteUnderAccount')->name('delete.under-account');
+    });
+
+    
+
+});// end group admin middleware
 
 
 

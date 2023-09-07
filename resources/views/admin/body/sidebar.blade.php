@@ -79,24 +79,24 @@
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
               <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Factures</span>
+              <span class="link-title">Comptes</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
             <div class="collapse" id="uiComponents">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="pages/ui-components/accordion.html" class="nav-link">Ajouter Factures</a>
+                  <a href="{{route('all.accounts')}}" class="nav-link">Les Comptes</a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/ui-components/alerts.html" class="nav-link">Liste des Factures</a>
-                </li>
-                <!-- <li class="nav-item">
-                  <a href="pages/ui-components/badges.html" class="nav-link">Badges</a>
+                  <a href="{{route('all.companies')}}" class="nav-link">Les Compagnies</a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/ui-components/breadcrumbs.html" class="nav-link">Breadcrumbs</a>
+                  <a href="{{route('all.services')}}" class="nav-link">Les Services</a>
                 </li>
-                <li class="nav-item">
+                 <li class="nav-item">
+                  <a href="{{route('all.under-accounts')}}" class="nav-link">Les Sous Comptes</a>
+                </li>
+                <!--<li class="nav-item">
                   <a href="pages/ui-components/buttons.html" class="nav-link">Buttons</a>
                 </li>
                 <li class="nav-item">

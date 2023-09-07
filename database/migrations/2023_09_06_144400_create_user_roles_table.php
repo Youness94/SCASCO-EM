@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('role')->unique();
             $table->string('role_desc');
+            $table->foreignId('user_id')->constrained('users'); 
             $table->timestamps();
         });
     }
