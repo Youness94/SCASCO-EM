@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-body">
                    
-                        <h6 class="card-title">Modifier Services <span>{{$accounts -> service_name}}</span></h6>
+                        <h6 class="card-title">Modifier Services <span>{{$services -> service_name}}</span></h6>
                    
                         <form method="POST" action="{{route('update.service')}}" class="forms-sample" enctype="multipart/form-data">
                             @csrf

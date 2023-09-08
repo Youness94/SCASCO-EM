@@ -96,22 +96,22 @@
                  <li class="nav-item">
                   <a href="{{route('all.under-accounts')}}" class="nav-link">Les Sous Comptes</a>
                 </li>
-                <!--<li class="nav-item">
-                  <a href="pages/ui-components/buttons.html" class="nav-link">Buttons</a>
+               <li class="nav-item">
+                  <a href="{{route('all.houses')}}" class="nav-link">Les Maisons</a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/ui-components/button-group.html" class="nav-link">Button group</a>
+                  <a href="{{route('all.claims')}}" class="nav-link">Les Sinisters</a>
+                </li>
+                 <li class="nav-item">
+                  <a href="{{route('all.remunerations')}}" class="nav-link">les Rémunérations</a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/ui-components/cards.html" class="nav-link">Cards</a>
+                  <a href="{{route('all.personal-commissions')}}" class="nav-link">Les Commissions Personnel</a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/ui-components/carousel.html" class="nav-link">Carousel</a>
+               <li class="nav-item">
+                    <a href="{{route('all.auto-particulier-commissions')}}" class="nav-link">Les Commissions Auto Particuliers</a>
                 </li>
-                <li class="nav-item">
-                    <a href="pages/ui-components/collapse.html" class="nav-link">Collapse</a>
-                  </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a href="pages/ui-components/dropdowns.html" class="nav-link">Dropdowns</a>
                 </li>
                 <li class="nav-item">

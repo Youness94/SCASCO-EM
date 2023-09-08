@@ -11,16 +11,16 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                   
-                        <h6 class="card-title">Modifier la Compagnie <span>{{$companies -> company_name}}</span></h6>
-                   
-                        <form method="POST" action="{{route('update.company')}}" class="forms-sample" enctype="multipart/form-data">
+                        <h6 class="card-title">Ajouter Maison</h6>
+
+
+                        <form method="POST" action="{{route('store.house')}}" class="forms-sample" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="id"  value="{{$companies->id}}">
+
                             <div class="mb-3">
-                                <label for="company_name" class="form-label">Nom de Compte</label>
-                                <input type="text" name="company_name" class="form-control @error('company_name') is-invalid @enderror" id="company_name" autocomplete="off" value="{{$companies->company_name}}">
-                                @error('company_name')
+                                <label for="house_name" class="form-label">Nom de Maison</label>
+                                <input type="text" name="house_name" class="form-control @error('house_name') is-invalid @enderror" id="house_name" autocomplete="off" required>
+                                @error('house_name')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -30,22 +30,18 @@
 
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                        <textarea class="form-control" id="company_desc" type="text" name="company_desc" rows="5" value="{{$companies->company_desc}}">{{$companies->company_desc}}</textarea>
+                                        <textarea class="form-control" id="house_desc" type="text" name="house_desc" rows="5"></textarea>
                                     </div>
                                 </div>
                             </div></br>
                             <div>
-                                <button type="submit" class="btn btn-primary me-2">Modifier</button>
+                                <button type="submit" class="btn btn-primary me-2">Ajouetr</button>
                             </div>
 
                         </form>
-
-                       
                     </div>
                 </div>
             </div>
         </div>
-        <!-- list client -->
-
-
+        
         @endsection

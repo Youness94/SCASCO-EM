@@ -23,8 +23,8 @@ class CompanyController extends Controller
     public function StoreCompany(Request $request)
     {
         $validatedData = $request->validate([
-            'account_name' => 'required|string|max:100',
-            'account_desc' => 'string',
+            'company_name' => 'required|string|max:100',
+            'company_desc' => 'string',
             
         // Add more validation rules for other fields
         ]);

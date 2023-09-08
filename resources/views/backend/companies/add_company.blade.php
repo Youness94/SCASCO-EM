@@ -14,7 +14,7 @@
                         <h6 class="card-title">Ajouter Compagnie</h6>
 
 
-                        <form method="POST" action="{{route('store.account')}}" class="forms-sample" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('store.company')}}" class="forms-sample" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-3">

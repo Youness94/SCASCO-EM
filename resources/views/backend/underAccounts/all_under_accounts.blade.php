@@ -38,10 +38,10 @@
                         <td>{{$item -> service_name}}</td>
                         <td>{{$item -> services_desc}}</td>
                         <td>
-                        <a href="{{route('edit.service',$item->id)}}" class="btn btn-inverse-warning">Edit</a>
+                        <a href="{{route('edit.under-account',$item->id)}}" class="btn btn-inverse-warning">Edit</a>
                         </td>
                         <td>
-                        <a href="{{route('delete.service',$item->id)}}"" class="btn btn-inverse-danger">Delete</a>
+                        <a href="{{route('delete.under-account',$item->id)}}"" class="btn btn-inverse-danger">Delete</a>
                         </td>
                         <td>{{$item -> user->name}}</td>
                     </tr>

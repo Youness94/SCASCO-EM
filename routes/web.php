@@ -6,13 +6,18 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\ApcommissionController;
 use App\Http\Controllers\BillexchangeController;
 use App\Http\Controllers\CheckbookController;
 use App\Http\Controllers\CheckController;
+use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\HouseController;
+use App\Http\Controllers\PcommissionController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\RegulationsController;
+use App\Http\Controllers\RemunerationController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TypetransfersController;
 use App\Http\Controllers\UnderAccountController;
@@ -76,7 +81,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/client', 'UpdateClient')->name('update.client');
         Route::get('/delete/client/{id}', 'DeleteClient')->name('delete.client');
     });
-
 });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -89,7 +93,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/supplier', 'UpdateSupplier')->name('update.supplier');
         Route::get('/delete/supplier/{id}', 'DeleteSupplier')->name('delete.supplier');
     });
-
 });// end group admin middleware
 
 // Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -102,9 +105,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 //         Route::post('/update/regulation', 'UpdateRegulation')->name('update.regulation');
 //         Route::get('/delete/regulation/{id}', 'DeleteRegulation')->name('delete.regulation');
 //     });
-
-    
-
 // });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -120,13 +120,10 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
       
     });
-
-    
-
 });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
-    
+
     Route::controller(BillexchangeController::class)->group(function(){
         Route::get('/all/billexchanges', 'AllBillexchanges')->name('all.billexchanges');
         Route::get('/add/billexchange', 'AddBillexchange')->name('add.billexchange');
@@ -136,9 +133,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/billexchange', 'UpdateBillexchange')->name('update.billexchange');
         Route::get('/delete/billexchange/{id}', 'DeleteBillexchange')->name('delete.billexchange');
     });
-
-    
-
 });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -152,9 +146,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/type-transfer', 'UpdateTypetransfer')->name('update.type-transfers');
         Route::get('/delete/type-transfers/{id}', 'DeleteTypetransfer')->name('delete.type-transfer');
     });
-
-    
-
 });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -162,9 +153,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(CheckController::class)->group(function(){
         Route::post('/add/fillChecks/{id}', 'FillChecks')->name('add.fillChecks');
     });
-
-    
-
 });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -177,9 +165,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/account', 'UpdateAccount')->name('update.account');
         Route::get('/delete/account/{id}', 'DeleteAccount')->name('delete.account');
     });
-
-    
-
 });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -192,9 +177,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/company', 'UpdateCompany')->name('update.company');
         Route::get('/delete/company/{id}', 'DeleteCompany')->name('delete.company');
     });
-
-    
-
 });// end group admin middleware
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -207,9 +189,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/service', 'UpdateService')->name('update.service');
         Route::get('/delete/service/{id}', 'DeleteService')->name('delete.service');
     });
-
-    
-
 });// end group admin middleware
 
 
@@ -223,13 +202,62 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/under-account', 'UpdateUnderAccount')->name('update.under-account');
         Route::get('/delete/under-account/{id}', 'DeleteUnderAccount')->name('delete.under-account');
     });
-
-    
-
 });// end group admin middleware
 
 
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(HouseController::class)->group(function(){
+        Route::get('/all/houses', 'AllHouses')->name('all.houses');
+        Route::get('/add/house', 'AddHouse')->name('add.house');
+        Route::post('/store/house', 'StoreHouse')->name('store.house');
+        Route::get('/edit/house/{id}', 'EditHouse')->name('edit.house');
+        Route::post('/update/house', 'UpdateHouse')->name('update.house');
+        Route::get('/delete/house/{id}', 'DeleteHouse')->name('delete.house');
+    });
+});// end group admin middleware
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(ClaimController::class)->group(function(){
+        Route::get('/all/claims', 'AllClaims')->name('all.claims');
+        Route::get('/add/claim', 'AddClaim')->name('add.claim');
+        Route::post('/store/claim', 'StoreClaim')->name('store.claim');
+        Route::get('/edit/claim/{id}', 'EditClaim')->name('edit.claim');
+        Route::post('/update/claim', 'UpdateClaim')->name('update.claim');
+        Route::get('/delete/claim/{id}', 'DeleteClaim')->name('delete.claim');
+    });
+});// end group admin middleware
 
-
-//  clients routes
-
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(RemunerationController::class)->group(function(){
+        Route::get('/all/remunerations', 'AllRemunerations')->name('all.remunerations');
+        Route::get('/add/remuneration', 'AddRemuneration')->name('add.remuneration');
+        Route::post('/store/remuneration', 'StoreRemuneration')->name('store.remuneration');
+        Route::get('/edit/remuneration/{id}', 'EditRemuneration')->name('edit.remuneration');
+        Route::post('/update/remuneration', 'UpdateRemuneration')->name('update.remuneration');
+        Route::get('/delete/remuneration/{id}', 'DeleteRemuneration')->name('delete.remuneration');
+    });
+});// end group admin middleware  
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(PcommissionController::class)->group(function(){
+        Route::get('/all/personal-commissions', 'AllPersonalCommissions')->name('all.personal-commissions');
+        Route::get('/add/personal-commission', 'AddPersonalCommission')->name('add.personal-commission');
+        Route::post('/store/personal-commission', 'StorePersonalCommission')->name('store.personal-commission');
+        Route::get('/edit/personal-commission/{id}', 'EditPersonalCommission')->name('edit.personal-commission');
+        Route::post('/update/personal-commission', 'UpdatePersonalCommission')->name('update.personal-commission');
+        Route::get('/delete/personal-commission/{id}', 'DeletePersonalCommission')->name('delete.personal-commission');
+    });
+});// end group admin middleware 
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    
+    Route::controller(ApcommissionController::class)->group(function(){
+        Route::get('/all/auto-particulier-commissions', 'AllAutoParticulierCommissions')->name('all.auto-particulier-commissions');
+        Route::get('/add/auto-particulier-commission', 'AddAutoParticulierCommission')->name('add.auto-particulier-commission');
+        Route::post('/store/auto-particulier-commission', 'StoreAutoParticulierCommission')->name('store.auto-particulier-commission');
+        Route::get('/edit/auto-particulier-commission/{id}', 'EditAutoParticulierCommission')->name('edit.auto-particulier-commission');
+        Route::post('/update/auto-particulier-commission', 'UpdateAutoParticulierCommission')->name('update.auto-particulier-commission');
+        Route::get('/delete/auto-particulier-commission/{id}', 'DeleteAutoParticulierCommission')->name('delete.auto-particulier-commission');
+    });
+});// end group admin middleware  
